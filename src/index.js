@@ -1,11 +1,12 @@
-import React from 'react'
-import { render } from 'react-dom'
+import React from 'react';
+import { render } from 'react-dom';
+import './scss/style.scss'
 
 const App = () => {
     
 
-    return <div >
-        <h1 > To niesamowite!</h1>
+    return <div className="a" >
+        <h1 className="h" > To niesamowite!</h1>
         <p>Działa :</p> 
     </div>
 }
