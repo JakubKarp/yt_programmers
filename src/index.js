@@ -1,17 +1,8 @@
 import React from 'react';
-import { render } from 'react-dom';
-import './scss/style.scss'
+import ReactDOM from 'react-dom';
+///import './index.css';
+import App from './App';
 
-const App = () => {
-    
+ReactDOM.render(<App />, document.getElementById('root'));
 
-    return <div className="a" >
-        <h1 className="h" > To niesamowite!</h1>
-        <p>Działa :</p> 
-    </div>
-}
 
-render ( 
-    <App /> ,
-    document.getElementById('root')
-)

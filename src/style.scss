@@ -1,0 +1,89 @@
+body {
+    background-color: rgb(14, 41, 26)
+}
+
+.container{
+    position: relative;
+}
+
+.search-bar {
+    margin: 20px;
+    text-align: center
+}
+
+.search-bar input {
+    width: 70%;
+}
+
+.video-item img {
+    max-width: 64px;
+}
+
+.video-detail {
+    margin-top: 2vh;
+    
+    background-color: rgb(14, 41, 26)
+}
+
+.video-detail .details {
+    margin: 10px 0 10px 0;
+    padding: 10px; 
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #ddd
+}
+
+
+
+.list-group-item {
+    cursor: pointer;
+    margin: 10px 0 10px 0;
+    background: rgb(14, 41, 26);
+    border-radius: 4px;
+    color: #ddd;
+    font-size: 0.8rem;
+}
+
+.list-group {
+    margin-top: 2vh;
+}
+
+.list-group-item:hover {
+    background-color: #ccc;
+    color: rgb(14, 41, 26)
+}
+
+.media-object {
+    width: 64px
+}
+
+.media-heading-span {
+    font-weight: 700
+}
+
+.toggle-panel{
+    width: 80px;
+    height: 20px;
+    background-color: lightsalmon;
+    position: absolute;
+    top: 10px;
+    left: 880px;
+    color: white; 
+    z-index: 10;
+}
+
+.chanels-panel{
+    position: absolute;
+    top:0;
+    left: 80%;
+
+    font-size: 20px;
+    color: lightsalmon;
+    height: 100vh;
+    background-color: rgb(2, 18, 24);
+    
+}
+h6{
+    color: inherit;
+    margin-top: 40px;
+}
