@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import channelGetters from './roots/my_axios_module';
 import API_KEY from './roots/yt_key'
 import channelListId from './roots/channels';
-import VideoChannel from './components/video_channel';
-import VideosChannelList from './components/video_list';
+import SelectedChanel from './components/selectedChannel/selected_channel'
 import AllChannelsPanel from './components/chanels_panel';
 import './style.scss'
 
@@ -16,7 +15,7 @@ class App extends Component {
         super(props); 
         this.state = {
             channels: [],
-            selectedChanel: null, 
+            //selectedChanel: null, 
             lastVideos: [],
             lastVideo: null,
             toggleChannelsPanel: true,
@@ -55,11 +54,12 @@ class App extends Component {
     render() {
         return (
             <div className="container">
-                <VideoChannel whichChanel={this.state.lastVideo} />
-                <VideosChannelList 
+                <SelectedChanel
+                    whichChanel={this.state.lastVideo}
                     onVideoSelect={lastVideo => this.setState({lastVideo})}
-                    videos={this.state.lastVideos} 
-                /> 
+                    videos={this.state.lastVideos}
+                />
+                 
                 <div className="toggle-panel" 
                     onClick={this.handleToggleChannelsPanel}
                 />   

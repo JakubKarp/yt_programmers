@@ -1,57 +1,73 @@
+$darky: #021218;
+$darkyNavy: #252839;
+$greenSea: #677077;
+$lightBlue: #b5b5b7;
+$noOrange: #f2b632;
+
 body {
-    background-color: rgb(14, 41, 26)
+    background-color: $darkyNavy;
+    margin: 0;
+    .container{
+        display: flex;        
+        .selectedChannelContainer{
+            width: 75%;
+            display: flex;
+            margin: 0 30px;
+            margin-top: 2vh;    
+            .mainVideo {
+                width: 65%;                
+                background-color: $darkyNavy;
+                .embed-responsive{
+                    .embed-responsive-item{
+                        height: 272px;
+                        width: 486px;
+                    }
+                }
+                .mainVideo-channelTitle,
+                .mainVideo-details {
+                    margin: 10px 0 10px 0;
+                    padding: 10px; 
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    color: #ddd
+                }
+                .mainVideo-details{
+                    .mainVideo-details-title{
+
+                    }
+                    .mainVideo-details-days{
+
+                    }
+                }
+            }
+            .video-list {
+                width: 35%;
+                .list-group-item {
+                    cursor: pointer;
+                    margin: 10px 0 10px 0;
+                    background: $darkyNavy;
+                    border-radius: 4px;
+                    color: #ddd;
+                    font-size: 0.8rem;
+                    &:hover {
+                        background-color: #ccc;
+                        color: rgb(14, 41, 26)
+                    }                    
+                }
+            }
+        }
+        .chanels-panel{
+            width: 25%;
+            font-size: 20px;
+            color: $noOrange;
+            height: 100vh;
+            background-color: $darky;
+            
+        }
+    }
 }
 
-.container{
-    position: relative;
-}
 
-.search-bar {
-    margin: 20px;
-    text-align: center
-}
-
-.search-bar input {
-    width: 70%;
-}
-
-.video-item img {
-    max-width: 64px;
-}
-
-.video-detail {
-    margin-top: 2vh;
-    
-    background-color: rgb(14, 41, 26)
-}
-
-.video-detail .details {
-    margin: 10px 0 10px 0;
-    padding: 10px; 
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    color: #ddd
-}
-
-
-
-.list-group-item {
-    cursor: pointer;
-    margin: 10px 0 10px 0;
-    background: rgb(14, 41, 26);
-    border-radius: 4px;
-    color: #ddd;
-    font-size: 0.8rem;
-}
-
-.list-group {
-    margin-top: 2vh;
-}
-
-.list-group-item:hover {
-    background-color: #ccc;
-    color: rgb(14, 41, 26)
-}
 
 .media-object {
     width: 64px
@@ -72,17 +88,7 @@ body {
     z-index: 10;
 }
 
-.chanels-panel{
-    position: absolute;
-    top:0;
-    left: 80%;
 
-    font-size: 20px;
-    color: lightsalmon;
-    height: 100vh;
-    background-color: rgb(2, 18, 24);
-    
-}
 h6{
     color: inherit;
     margin-top: 40px;

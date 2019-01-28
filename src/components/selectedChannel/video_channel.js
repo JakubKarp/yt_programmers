@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const VideoChannel = ({whichChanel}) => {
     if (!whichChanel) {
@@ -14,16 +14,16 @@ const VideoChannel = ({whichChanel}) => {
     
     // miniatura src={whichChanel.snippet.thumbnails.medium.url}
     return (
-        <div className="video-detail col-md-6">
-            <div className="details">
+        <div className="mainVideo">
+            <div className="mainVideo-channelTitle">
                 <div>Kanał: {whichChanel.snippet.channelTitle}</div>
             </div>    
             <div className="embed-responsive embed-responsive-16by9">
                 <iframe className="embed-responsive-item" src={url}></iframe>
             </div>
-           <div className="details">
-                <div>Najnowszy odcinek: {whichChanel.snippet.title}</div>
-                <div className="media-heading">Dni od daty publikacji: {daysFromPublishingDate}</div>
+           <div className="mainVideo-details">
+                <div className="mainVideo-details-title">Najnowszy odcinek: {whichChanel.snippet.title}</div>
+                <div className="mainVideo-details-days">Dni od daty publikacji: {daysFromPublishingDate}</div>
                 
                 {/* <div>{whichChanel.snippet.description}</div>
                 <div>{whichChanel.snippet.channelId}</div>

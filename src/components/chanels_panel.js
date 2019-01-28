@@ -1,29 +1,22 @@
 import React, {Component} from "react";
 
-class ChannelsPanel extends Component{
+const ChannelsPanel = (props) => {
     
-    channelId = (id) => {
-        this.props.selectChannel(id)
+    const channelId = (id) => {
+        props.selectChannel(id)
     }
 
-    render(){
-        const allNames = (
+    return (
+        <div className="chanels-panel" >
+            {/* <div class="toggle-button" onClick={this.props.hidePanel}></div> */}
+            <h6>Wybierz kanał</h6> 
             <ul>
-            {this.props.channelList.map(names => 
-               {return <li key={names.id} onClick={() => this.channelId(names.id)}>{names.name}</li>}
-               )} 
-            </ul>   
-        );
-
-        return(
-            <div className="chanels-panel col-md-4" >
-                {/* <div class="toggle-button" onClick={this.props.hidePanel}></div> */}
-                <h6>Wybierz kanał</h6> 
-                {allNames}
-            </div>
-            
-        )
-    }
+                {props.channelList.map(names => 
+                    <li key={names.id} onClick={() => channelId(names.id)}>{names.name}</li>
+                )}
+            </ul>
+        </div>        
+    )    
 }
 
 export default ChannelsPanel;
