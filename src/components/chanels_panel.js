@@ -1,22 +1,46 @@
 import React, {Component} from "react";
 
-const ChannelsPanel = (props) => {
+class ChannelsPanel extends Component {
     
-    const channelId = (id) => {
-        props.selectChannel(id)
+
+    //dzięki metodzie poniżej panel z kanałami nie renderuje się po każdym kliknięciu w pojedyncze 
+    //wideo na liście wyświetlonych wideo danego kanału
+     shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.channelList != this.props.channelList        
     }
 
-    return (
-        <div className="chanels-panel" >
-            {/* <div class="toggle-button" onClick={this.props.hidePanel}></div> */}
-            <h6>Wybierz kanał</h6> 
-            <ul>
-                {props.channelList.map(names => 
-                    <li key={names.id} onClick={() => channelId(names.id)}>{names.name}</li>
-                )}
-            </ul>
-        </div>        
-    )    
+    componentWillUpdate() {
+        console.log("panel willupdate"); 
+    }
+
+
+
+    render() {
+        const channelId = (id) => {
+            this.props.selectChannel(id)
+        }
+        const activeLanguage = {
+            color: "inherit"
+        }
+                
+        return (
+            <div className="channels-panel" >
+                {/* <div class="toggle-button" onClick={this.props.hidePanel}></div> */}
+                <h3>Wybierz kanał</h3>
+                <h6 onClick={this.props.polish} style={Object.assign( {} , this.props.language === 0 && activeLanguage)} >Polski</h6> 
+                <h6 onClick={this.props.english} style={Object.assign( {} , this.props.language === 1 && activeLanguage)} >Angielski</h6>
+                <ul>
+                    {this.props.channelList.map(names => 
+                        <li key={names.id} onClick={() => channelId(names.id)}>{names.name}</li>
+                        
+                    )}
+                    
+                </ul>
+            </div>        
+        )   
+    }
+
+     
 }
 
 export default ChannelsPanel;

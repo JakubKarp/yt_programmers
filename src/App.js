@@ -19,9 +19,12 @@ class App extends Component {
             lastVideos: [],
             lastVideo: null,
             toggleChannelsPanel: true,
+            language: 1
             
         }
-        this.searchLastVidoes(channelListId[5].id);
+        this.searchLastVidoes(channelListId[1][0].id) 
+        console.log(channelListId);
+        
     }
    
     searchLastVidoes(channelId) {
@@ -42,7 +45,11 @@ class App extends Component {
     }
     
     handleSelectChanel = (channelId) => {
-        this.searchLastVidoes(channelId)
+        this.searchLastVidoes(channelId) 
+    }
+
+    handleVideoSelect = (lastVideo) => {
+        this.setState({lastVideo})
     }
 
     handleToggleChannelsPanel = () => {
@@ -51,12 +58,23 @@ class App extends Component {
         });
     }
 
+
+    changeOnEnglishHadler = () => {
+        //console.log(this.state.language);
+        this.setState({language: 1})         
+    }
+
+    changeOnPolishHandler = () => {
+        //console.log(this.state.language);
+        this.setState({language: 0}) 
+    }
+
     render() {
         return (
             <div className="container">
                 <SelectedChanel
                     whichChanel={this.state.lastVideo}
-                    onVideoSelect={lastVideo => this.setState({lastVideo})}
+                    onVideoSelect={this.handleVideoSelect}
                     videos={this.state.lastVideos}
                 />
                  
@@ -67,8 +85,11 @@ class App extends Component {
                 {this.state.toggleChannelsPanel && 
                 <AllChannelsPanel 
                     hidePanel={this.handleToggleChannelsPanel}  
-                    channelList={channelListId}
-                    selectChannel={this.handleSelectChanel}    
+                    channelList={channelListId[this.state.language]}
+                    selectChannel={this.handleSelectChanel}
+                    language={this.state.language}
+                    polish={this.changeOnPolishHandler}
+                    english={this.changeOnEnglishHadler}    
                 />}
                 
             </div>

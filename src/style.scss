@@ -2,7 +2,12 @@ $darky: #021218;
 $darkyNavy: #252839;
 $greenSea: #677077;
 $lightBlue: #b5b5b7;
-$noOrange: #f2b632;
+$orange: #f2b632;
+$width: 43vw;
+@mixin border {
+    border: 1px solid $orange;
+    border-radius: 14px;
+}
 
 body {
     background-color: $darkyNavy;
@@ -19,17 +24,19 @@ body {
                 background-color: $darkyNavy;
                 .embed-responsive{
                     .embed-responsive-item{
-                        height: 272px;
-                        width: 486px;
+                        height: $width * 0.56;
+                        width: $width;
+                        border: 2px solid $orange;
+                        border-radius: 4px;
+                        
                     }
                 }
                 .mainVideo-channelTitle,
                 .mainVideo-details {
                     margin: 10px 0 10px 0;
                     padding: 10px; 
-                    border: 1px solid #ddd;
-                    border-radius: 4px;
-                    color: #ddd
+                    color: #ddd;
+                    @include border;
                 }
                 .mainVideo-details{
                     .mainVideo-details-title{
@@ -42,27 +49,54 @@ body {
             }
             .video-list {
                 width: 35%;
+                list-style: none;
                 .list-group-item {
                     cursor: pointer;
                     margin: 10px 0 10px 0;
                     background: $darkyNavy;
                     border-radius: 4px;
-                    color: #ddd;
+                    color: $lightBlue;
                     font-size: 0.8rem;
+                    padding: 10px;
+                    display: flex;
+                    @include border;
                     &:hover {
-                        background-color: #ccc;
-                        color: rgb(14, 41, 26)
-                    }                    
+                        background-color: $lightBlue;
+                        color: $darky;
+                        //border: none
+                    }
+                    .media-img{
+                        margin-right: 10px;
+                    }
+                    .media-body{
+                        .media-heading{
+                            
+                        }
+                        .media-date{
+                            padding: 2px 16px;
+                            background: $darkyNavy;
+                            margin-top: 4px;
+                            color: $orange;
+                            @include border;
+                        }                    
+                    }
                 }
             }
         }
-        .chanels-panel{
+        .channels-panel{
             width: 25%;
             font-size: 20px;
-            color: $noOrange;
+            color: $orange;
             height: 100vh;
             background-color: $darky;
-            
+            h3{
+                color: inherit;
+            }
+            h6{
+                display: inline-block;
+                margin-left: 20px;
+                color: $greenSea;
+            }
         }
     }
 }
